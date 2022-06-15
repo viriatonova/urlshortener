@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from shortener.helpers import viewsets as shortnerViewset
+from shortener.api import viewsets as shortnerViewset
 
 route = routers.DefaultRouter()
-route.register(r'shortener/', shortnerViewset.ShortnerViewSet, basename="Shortener")
+route.register(r'shortener', shortnerViewset.ShortnerViewSet, basename="Shortener")
 
 urlpatterns = [
     path('admin/', admin.site.urls),

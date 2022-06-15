@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from shortener.helpers import serializer
+from shortener.api import serializer
 from shortener import models
 
 class ShortnerViewSet(viewsets.ModelViewSet):
