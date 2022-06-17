@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    body {
+        @apply w-screen h-screen bg-slate-800 text-white
+    }
+
+    #__next{
+        @apply w-full h-full p-20 flex justify-center items-center
+    }
+
+    .main-wraped {
+        @apply w-1/2 h-full p-6 bg-slate-600 rounded-lg
+    }
+}
