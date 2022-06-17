@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+
+  postgres_db:
+    image: postgres
+    volumes:
+      - postgres_database:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_DB=${POSTGRES_DB}"
+      - "POSTGRES_USER=${POSTGRES_USER}"
+      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
+
+  rest_api:
+    build: ./shortener-backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./shortener-backend:/code
+    ports:
+      - "8181:8000"
+    depends_on:
+      - postgres_db
+
+  frontend:
+    build: ./shortener-frontend/app
+    command: npm run dev
+    ports:
+      - "3030:3000"
+    volumes:
+      - ./shortener-frontend/app:/code
+    depends_on:
+      - rest_api
+
+volumes:
+  postgres_database: 
+    external: false
