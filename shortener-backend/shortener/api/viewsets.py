@@ -1,7 +1,21 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
-from shortener.api import serializer
+from rest_framework.response import Response
 from shortener import models
+from shortener.api.serializer import ShortenerSerializer
 
-class ShortnerViewSet(viewsets.ModelViewSet):
-    serializer_class = serializer.ShortenerSerializer
+
+class ShortenerViewSet(viewsets.ModelViewSet):
+    serializer_class = ShortenerSerializer
     queryset = models.Shortener.objects.all()
+
+    def list(self, request):
+        queryset = models.Shortener.objects.all()
+        serializer = ShortenerSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
+        queryset = models.Shortener.objects.all()
+        shortener = get_object_or_404(queryset, pk=pk)
+        serializer = ShortenerSerializer(shortener)
+        return Response(serializer.data)
