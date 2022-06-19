@@ -5,26 +5,26 @@ import * as yup from "yup";
 
 const schema = yup.object({
     url: yup.string().required(),
-    url_temp: yup.string().required(),
+    urltemp: yup.string().required(),
 }).required();
 
-const Form = () => {
+const UrlForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
-    const [checked, setChecked] = useState(false)
-    const handleClick = () => {
-        setChecked(!checked)
-        console.log(checked)
-    }
+    // const [checked, setChecked] = useState(false)
 
-    const onSubmit = async (data) => {
+    // const handleClick = () => {
+    //     setChecked(!checked)
+    // }
+
+    const onSubmit = (data) => {
         console.log(data)
     };
 
     return (
-        <form action="" onSubmit={onSubmit} className="shortener-form">
+        <form onSubmit={handleSubmit(onSubmit)} className="shortener-form">
             <fieldset className="input-text">
                 <input 
                 name="url" 
@@ -36,7 +36,7 @@ const Form = () => {
                 {
                 errors.url && 
                 errors.url.type === "required" && 
-                <p className="erro-msg">Url is riquered</p> 
+                <p className="erro-msg">Url field is riquered</p> 
                 }
                 <label htmlFor="url">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -45,18 +45,20 @@ const Form = () => {
                 </label>
             </fieldset>
             <fieldset className="w-full flex justify-end items-center">
-                <label htmlFor="url-temp" className="text-lg mr-4">Temporary URL </label>
+                <label htmlFor="urltemp" className="text-lg mr-4">Temporary URL</label>
                 <input 
                 type="checkbox"
-                onChange={handleClick} 
-                checked={checked} 
-                name="url-temp" 
-                id="url-temp" 
-                className="temp-checkbox"/>
+                // onChange={handleClick} 
+                // checked={checked} 
+                name="urltemp" 
+                id="urltemp" 
+                className="temp-checkbox"
+                {...register ("urltemp")}
+                />
             </fieldset>
             <button type="submit" className="btn-primary">Click</button>
         </form>
     )
 }
 
-export default Form
+export default UrlForm

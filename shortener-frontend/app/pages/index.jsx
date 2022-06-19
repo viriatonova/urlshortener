@@ -1,6 +1,6 @@
 import React, { useState }  from 'react'
 import Nav from "../components/Nav"
-import Form from "../components/Form"
+import UrlForm from "../components/UrlForm"
 
 export default function Home() {
     const [ short, Setshort ] = useState("http://localhost:3000/89asd098") 
@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <main className="main-wraped">
             <Nav />
-            <Form />
+            <UrlForm />
             <article className="shortener">
                 <a href="">{ short }</a>
             </article>
