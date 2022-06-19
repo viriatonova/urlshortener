@@ -15,7 +15,6 @@ class ShortenerViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        queryset = models.Shortener.objects.all()
-        shortener = get_object_or_404(queryset, pk=pk)
+        shortener = get_object_or_404(models.Shortener, pk=pk)
         serializer = ShortenerSerializer(shortener)
         return Response(serializer.data)
