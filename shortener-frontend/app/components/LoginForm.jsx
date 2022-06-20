@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 // import { LoginContext } from "../Context/LoginContext";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import LoginUser from '../helpers/LoginHelper';
 
 const schema = yup.object({
     username: yup.string().required(),
@@ -20,9 +21,9 @@ const LoginForm = () => {
 
     const router = useRouter();
 
-    const onSubmit = (data) => {
-        console.log(data)
-        router.push('/dashboard')
+    const onSubmit = async (data) => {
+        const login = await LoginUser(data);
+        if (login.token ) router.push('/dashboard')
     };
     
     return (
