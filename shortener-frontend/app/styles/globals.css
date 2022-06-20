@@ -43,6 +43,11 @@
         flex flex-col items-center
     }
 
+    .dash-wraped {
+        @apply w-3/4 h-full py-6 px-10 bg-slate-600 rounded-lg
+        flex justify-start items-start
+    }
+
     .shorter-nav {
         @apply w-full h-auto py-2 flex justify-start items-center
 
@@ -71,12 +76,12 @@
         @apply w-32 h-auto px-4 py-2 text-base lg:text-xl text-slate-900
         border border-slate-900 rounded-md bg-slate-100
         hover:border-none hover:bg-pink-700 hover:text-slate-100
-        transition ease-in-out duration-300 self-end
+        transition ease-in-out duration-300 self-end active:text-cyan-300
     }
 
     .btn-login {
-        @apply w-1/2 text-right self-end hover:text-pink-300
-        hover:underline
+        @apply w-1/2 text-left self-start hover:text-pink-300
+        hover:underline text-2xl active:text-cyan-300
     }
 
     .shortener {
@@ -97,5 +102,18 @@
 
     .login-form {
         @apply w-full h-full flex flex-col justify-start
+    }
+
+    .url-list {
+        @apply w-full h-full space-y-4
+    }
+
+    .url-item {
+        @apply w-full flex px-8 py-4 border border-slate-300
+        rounded-lg
+    }
+
+    .btn-remove {
+        @apply hover:text-pink-300 active:text-cyan-300
     }
 }

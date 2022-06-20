@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router'
 // import { LoginContext } from "../Context/LoginContext";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -13,16 +14,17 @@ const schema = yup.object({
  * @returns Formulário Login da aplicação
  */
 const LoginForm = () => {
-
-
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
+    const router = useRouter();
+
     const onSubmit = (data) => {
         console.log(data)
+        router.push('/dashboard')
     };
-
+    
     return (
         <form
             onSubmit={ handleSubmit(onSubmit) }
@@ -69,5 +71,6 @@ const LoginForm = () => {
         </form>
     );
 }
+
 
 export default LoginForm;
