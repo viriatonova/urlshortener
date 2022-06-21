@@ -1,16 +1,17 @@
-import React, { useState }  from 'react'
+import React, { useState, useContext }  from 'react'
 import Nav from "../components/Nav"
 import UrlForm from "../components/UrlForm"
+import { UrlContext } from '../contexts/UrlContext'
 
 export default function Home() {
-    const [ short, Setshort ] = useState("http://localhost:3000/89asd098") 
+    const { url, setUrl } = useContext(UrlContext)
     
     return (
         <main className="main-wraped">
             <Nav />
             <UrlForm />
             <article className="shortener">
-                <a href="">{ short }</a>
+                <a  className="text-xl tracking-wider text-white" href="">{ url }</a>
             </article>
         </main>
     )

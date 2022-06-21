@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState, useContext }from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { getData, postData } from '../helpers/DataHelper';
+import { postData } from '../helpers/AuthDataHelper';
+import { UrlContext } from '../contexts/UrlContext'
 
 const schema = yup.object({
     url: yup.string().required(),
@@ -10,12 +11,15 @@ const schema = yup.object({
 }).required();
 
 const UrlForm = () => {
+    const { setUrl } = useContext(UrlContext);
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
     
     const onSubmit = async (data) => {
-        await postData(data);
+        const response = await postData(data);
+        const urlResponse = await response.url_shortener
+        setUrl(urlResponse)
     };
 
     return (

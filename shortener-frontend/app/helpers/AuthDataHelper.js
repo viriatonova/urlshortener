@@ -8,9 +8,10 @@ export const getAllData = async () => {
     }
 }
 
+
 export const postData = async (data) => {
     try {
-        const url = 'http://http://127.0.0.1:8181/api/v1/';
+        const url = 'http://127.0.0.1:8181/api/v1/';
 
         let dataApi = {
             'url': data.url,
@@ -24,6 +25,10 @@ export const postData = async (data) => {
             },
             body: JSON.stringify(dataApi)
         })
+        
+        const response = await api.json()
+        return response   
+
     } catch (e) {
         console.log(e);
     }

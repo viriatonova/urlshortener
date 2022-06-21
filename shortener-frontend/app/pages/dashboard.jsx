@@ -1,20 +1,24 @@
-import React, { useState, useContext, useCallback }  from 'react'
-import Nav from "../components/Nav"
+import React, { useState, useContext, useCallback, useEffect }  from 'react'
 import UrlForm from "../components/UrlForm"
 import UrlList from '../components/UrlList'
 import { UserContext } from '../contexts/UserContext';
-import { getAllData } from '../helpers/DataHelper';
+import { getAllData } from '../helpers/AuthDataHelper';
 
 const Dashboard = () => {
-    const { user, setUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
     const [ short, Setshort ] = useState("http://localhost:3000/89asd098")
     const [ acess, Setacess ] = useState(0)
-    const [urlList, setUrlList] = useState({});
+    const [urlList, setUrlList] = useState([]);
     
-    useCallback( async () => {
+    const handleList = useCallback( async () => {
         const dataList = await getAllData();
         setUrlList(dataList)
     })
+    
+    useEffect(() => {
+        handleList()
+    },[])
+
 
     return (
         <main className="dash-wraped">
@@ -28,9 +32,9 @@ const Dashboard = () => {
                     <p>Link amount acess: {acess}</p>
                 </article>
             </section>
-            <aside className="w-1/2">
-                {urlList.map(() => (
-                    <UrlList key={urlList.id} url_shortener={urlList.url_shortener}/>
+            <aside className="w-1/2 space-y-4">
+                {urlList.map((urlList) => (
+                    <UrlList key={urlList.id_shortener} url_shortener={urlList.url_shortener}/>
                 ))}
             </aside>
         </main>
