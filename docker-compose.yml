@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
 
-  postgres_db:
+  shotener_db:
     image: postgres
     volumes:
       - postgres_database:/var/lib/postgresql/data
@@ -19,7 +19,7 @@ services:
     ports:
       - "8181:8000"
     depends_on:
-      - postgres_db
+      - shotener_db
 
   frontend:
     build: ./shortener-frontend/app

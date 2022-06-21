@@ -13,18 +13,14 @@ const UrlForm = () => {
         resolver: yupResolver(schema)
     });
 
-    // const [checked, setChecked] = useState(false)
-
-    // const handleClick = () => {
-    //     setChecked(!checked)
-    // }
-
+    
     const onSubmit = (data) => {
         console.log(data)
     };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="shortener-form">
+            <p className="self-start mt-6">Insert Url here</p>
             <fieldset className="input-text">
                 <input 
                 name="url" 
@@ -56,7 +52,7 @@ const UrlForm = () => {
                 {...register ("urltemp")}
                 />
             </fieldset>
-            <button type="submit" className="btn-primary">Click</button>
+            <button type="submit" className="btn-primary">Enviar</button>
         </form>
     )
 }

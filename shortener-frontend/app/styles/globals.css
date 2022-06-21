@@ -109,11 +109,11 @@
     }
 
     .url-item {
-        @apply w-full flex px-8 py-4 border border-slate-300
+        @apply w-full flex p-4 border border-slate-300
         rounded-lg
     }
 
-    .btn-remove {
+    .btn-list {
         @apply hover:text-pink-300 active:text-cyan-300
     }
 }

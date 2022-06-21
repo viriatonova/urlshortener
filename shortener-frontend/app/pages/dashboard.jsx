@@ -4,7 +4,8 @@ import UrlForm from "../components/UrlForm"
 import UrlList from '../components/UrlList'
 
 const Dashboard = () => {
-    const [ short, Setshort ] = useState("http://localhost:3000/89asd098") 
+    const [ short, Setshort ] = useState("http://localhost:3000/89asd098")
+    const [ acess, Setacess ] = useState(0)
     
     return (
         <main className="dash-wraped">
@@ -14,7 +15,7 @@ const Dashboard = () => {
                     <a href="">{ short }</a>
                 </article>
                 <article className="mt-12">
-                    Statistic link
+                    <p>Link amount acess: {acess}</p>
                 </article>
             </section>
             <aside className="w-1/2">

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router'
 // import { LoginContext } from "../Context/LoginContext";
@@ -15,6 +16,7 @@ const schema = yup.object({
  * @returns Formulário Login da aplicação
  */
 const LoginForm = () => {
+    const [msg, setMesg ] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
@@ -23,7 +25,11 @@ const LoginForm = () => {
 
     const onSubmit = async (data) => {
         const login = await LoginUser(data);
-        if (login.token ) router.push('/dashboard')
+        if (login.token ) { 
+            router.push('/dashboard') 
+        } else {
+            setMesg("Sorry, user not existe")
+        }
     };
     
     return (
@@ -69,6 +75,7 @@ const LoginForm = () => {
                 </label>
             </fieldset>
             <button type="submit" className="btn-primary">Login</button>
+            <p className="text-xl text-pink-400">{ msg }</p>
         </form>
     );
 }
