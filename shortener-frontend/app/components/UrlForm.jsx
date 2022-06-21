@@ -1,21 +1,21 @@
-import React, { useState }  from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import { getData, postData } from '../helpers/DataHelper';
 
 const schema = yup.object({
     url: yup.string().required(),
-    urltemp: yup.string().required(),
+    url_temporaria: yup.string().required(),
 }).required();
 
 const UrlForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
-
     
-    const onSubmit = (data) => {
-        console.log(data)
+    const onSubmit = async (data) => {
+        await postData(data);
     };
 
     return (
@@ -41,15 +41,15 @@ const UrlForm = () => {
                 </label>
             </fieldset>
             <fieldset className="w-full flex justify-end items-center">
-                <label htmlFor="urltemp" className="text-lg mr-4">Temporary URL</label>
+                <label htmlFor="url_temporaria" className="text-lg mr-4">Temporary URL</label>
                 <input 
                 type="checkbox"
                 // onChange={handleClick} 
                 // checked={checked} 
-                name="urltemp" 
-                id="urltemp" 
+                name="url_temporaria" 
+                id="url_temporaria" 
                 className="temp-checkbox"
-                {...register ("urltemp")}
+                {...register ("url_temporaria")}
                 />
             </fieldset>
             <button type="submit" className="btn-primary">Enviar</button>
