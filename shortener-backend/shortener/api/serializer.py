@@ -5,12 +5,10 @@ from shortener.models import Shortener
 
 
 class ShortenerSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Shortener
-        fields = [
-            'id_shortener', 'url', 'url_shortener',
-            'url_temporaria',
-        ]
+        fields = '__all__'
 
     url_shortener = serializers.SerializerMethodField(
         method_name='get_shortener',
@@ -18,11 +16,11 @@ class ShortenerSerializer(serializers.ModelSerializer):
     )
 
     def get_shortener(self, Shortener) -> str:
-        """_summary_
+        """Generate url shortener
 
         Returns:
-            string: _description_
+            string: url shortener
         """
         id_short = secrets.token_urlsafe(8)
-        url_shortener = f"http://localhost:8000/{id_short}"
+        url_shortener = f"http://localhost:8181/{id_short}"
         return url_shortener

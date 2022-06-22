@@ -9,11 +9,10 @@ from .serializer import UserSerializer
 
 
 class UserViewSet(ModelViewSet):
-    """_summary_
-    API endpoint that allows users to be viewed or edited.
-    Args:
-        ModelViewSet (_type_): 
+    """API endpoint that allows users to be viewed or edited.
 
+    Args:
+        ModelViewSet
     """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
@@ -21,10 +20,10 @@ class UserViewSet(ModelViewSet):
 
 
 class LoginAuthToken(ObtainAuthToken):
-    """_summary_
-    API endpoint to authenticate users
+    """ API endpoint to authenticate users
+
     Args:
-        ObtainAuthToken (_type_): _description_
+        ObtainAuthToken
     """
 
     def post(self, request, *args, **kwargs):
