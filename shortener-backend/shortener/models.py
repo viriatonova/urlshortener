@@ -8,7 +8,7 @@ from django.db import models
 class Shortener(models.Model):
     create_at = models.DateTimeField(auto_now_add=True, editable=False)
     url = models.URLField()
-    url_temporaria = models.BooleanField(default=False)
+    url_temporary = models.BooleanField(default=False)
     key = models.CharField(max_length=32, null=True)
     views_access = models.IntegerField(default=0)
 

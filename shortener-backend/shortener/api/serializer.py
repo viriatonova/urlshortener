@@ -11,4 +11,4 @@ class ShortenerSerializer(serializers.ModelSerializer):
 class PublicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shortener
-        fields = ['url', 'key']
+        fields = ['url', 'url_temporary', 'key']

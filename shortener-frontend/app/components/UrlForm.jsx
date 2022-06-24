@@ -1,33 +1,34 @@
-import React, {useState, useContext }from 'react'
+import React, { useContext }from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { postData } from '../helpers/AuthDataHelper';
+import { postData } from '../helpers/DataHelper';
 import { UrlContext } from '../contexts/UrlContext'
 
 const schema = yup.object({
     url: yup.string().required(),
-    url_temporaria: yup.string().required(),
+    url_temporary: yup.string().required(),
 }).required();
 
 const UrlForm = () => {
-    const { setUrl } = useContext(UrlContext);
+    const { url, setUrl } = useContext(UrlContext);
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
     
     const onSubmit = async (data) => {
         const response = await postData(data);
-        const urlResponse = await response.url_shortener
+        const urlResponse = await response
         setUrl(urlResponse)
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="shortener-form">
+        <form onSubmit={ handleSubmit(onSubmit) } className="shortener-form">
             <p className="self-start mt-6">Insert Url here</p>
             <fieldset className="input-text">
                 <input 
-                name="url" 
+                name="url"
+                id="url"
                 className="w-full" 
                 type="text" 
                 placeholder="Ex.: www.google.com/asda809?search=coisa+nada" 
@@ -45,15 +46,13 @@ const UrlForm = () => {
                 </label>
             </fieldset>
             <fieldset className="w-full flex justify-end items-center">
-                <label htmlFor="url_temporaria" className="text-lg mr-4">Temporary URL</label>
+                <label htmlFor="url_temporary" className="text-lg mr-4">Temporary URL</label>
                 <input 
                 type="checkbox"
-                // onChange={handleClick} 
-                // checked={checked} 
-                name="url_temporaria" 
-                id="url_temporaria" 
+                name="url_temporary" 
+                id="url_temporary" 
                 className="temp-checkbox"
-                {...register ("url_temporaria")}
+                {...register ("url_temporary")}
                 />
             </fieldset>
             <button type="submit" className="btn-primary">Enviar</button>

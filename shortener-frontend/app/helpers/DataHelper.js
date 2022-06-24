@@ -1,6 +1,19 @@
-export const getAllData = async () => {
+export const getData = async (token) => {
+
     try {
-        const api = await fetch('http://127.0.0.1:8181/api/v1/', {method:'GET'})
+
+        const url = 'http://127.0.0.1:8181/api/v1/';
+
+    
+        const api = await fetch(url, {
+            method:'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${token}`
+            },
+            
+        })
+
         const response = await api.json();
         return response
     } catch (e) {
@@ -11,11 +24,36 @@ export const getAllData = async () => {
 
 export const postData = async (data) => {
     try {
-        const url = 'http://127.0.0.1:8181/api/v1/';
+        const url = 'http://127.0.0.1:8181/api/public/';
 
         let dataApi = {
             'url': data.url,
-            'utl_temporaria':data.url_temporaria,
+            'utl_temporary':data.utl_temporary
+        }
+
+        const api = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataApi)
+        })
+        
+        const response = await api.json()
+        return response.key
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export const authPostData = async (data) => {
+    try {
+        const url = 'http://127.0.0.1:8181/api/public/';
+
+        let dataApi = {
+            'url': data[0],
+            'utl_temporary':data[1]
         }
 
         const api = await fetch(url, {

@@ -27,8 +27,8 @@ const LoginForm = () => {
 
     const onSubmit = async (data) => {
         const login = await LoginUser(data);
-        if (login.token ) { 
-            setUser(login.username)
+        if ( login.token ) { 
+            setUser([ data.username, login.token ])
             router.push('/dashboard') 
         } else {
             setMesg("Sorry, user not existe")

@@ -11,7 +11,7 @@ export default function Home() {
             <Nav />
             <UrlForm />
             <article className="shortener">
-                <a  className="text-xl tracking-wider text-white" href="">{ url }</a>
+                <a  className="text-md tracking-wider text-white" href={`http://localhost:8181/${url}`}>{ `http://localhost:8181/${url}` }</a>
             </article>
         </main>
     )

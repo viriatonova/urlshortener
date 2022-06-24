@@ -9,7 +9,7 @@
     }
 
     #__next{
-        @apply w-full h-full p-4 xl:p-12 2xl:py-20 2xl:px-32 flex justify-center items-center
+        @apply w-full h-full p-8 lg:p-12 2xl:p-20 flex justify-center items-center
     }
 
     /* GLOBAL ELEMENTS */
@@ -39,12 +39,12 @@
     }
 
     .main-wraped {
-        @apply w-full h-full py-6 px-10 bg-slate-600 rounded-lg
+        @apply w-full lg:w-2/3 xl:w-1/2 h-full py-6 px-10 bg-slate-600 rounded-lg
         flex flex-col items-center shadow-slate-500 shadow-lg
     }
 
     .dash-wraped {
-        @apply w-full h-full py-6 px-10 bg-slate-600 rounded-lg
+        @apply w-full lg:w-3/4 xl:w-2/3 h-full py-6 px-10 bg-slate-600 rounded-lg
         flex justify-start items-start shadow-slate-500 shadow-lg
     }
 
