@@ -1,19 +1,14 @@
 export const getData = async (token) => {
-
     try {
-
         const url = 'http://127.0.0.1:8181/api/v1/';
 
-    
         const api = await fetch(url, {
             method:'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Token ${token}`
             },
-            
         })
-
         const response = await api.json();
         return response
     } catch (e) {

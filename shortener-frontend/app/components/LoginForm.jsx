@@ -38,7 +38,7 @@ const LoginForm = () => {
     return (
         <form
             onSubmit={ handleSubmit(onSubmit) }
-            className="shortener-form w-2/3 space-y-10"
+            className="shortener-form"
         >
             <fieldset className="input-text">
                 <input 

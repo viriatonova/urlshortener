@@ -5,13 +5,17 @@ import { UrlContext } from '../contexts/UrlContext'
 
 export default function Home() {
     const { url, setUrl } = useContext(UrlContext)
+
     
     return (
         <main className="main-wraped">
             <Nav />
             <UrlForm />
             <article className="shortener">
-                <a  className="text-md tracking-wider text-white" href={`http://localhost:8181/${url}`}>{ `http://localhost:8181/${url}` }</a>
+                <a  
+                className="text-md tracking-wider text-white 
+                hover:text-pink-300 hover:underline" 
+                href={`http://localhost:8181/${url}`}>{ `http://localhost:8181/${url}`}</a>
             </article>
         </main>
     )

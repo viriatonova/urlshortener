@@ -5,7 +5,7 @@
 @layer components {
 
     body {
-        @apply w-screen h-screen bg-slate-800 text-white
+        @apply w-full h-full bg-slate-800 text-white
     }
 
     #__next{
@@ -39,23 +39,22 @@
     }
 
     .main-wraped {
-        @apply w-full lg:w-2/3 xl:w-1/2 h-full py-6 px-10 bg-slate-600 rounded-lg
-        flex flex-col items-center shadow-slate-500 shadow-lg
+        @apply w-full lg:w-2/3 xl:w-1/2 h-full p-10 bg-slate-600 rounded-lg
+        flex flex-col justify-center items-center shadow-slate-500 shadow-lg
     }
 
     .dash-wraped {
         @apply w-full lg:w-3/4 xl:w-2/3 h-full py-6 px-10 bg-slate-600 rounded-lg
-        flex justify-start items-start shadow-slate-500 shadow-lg
+        flex flex-col justify-center items-center shadow-slate-500 shadow-lg
     }
 
     .shorter-nav {
-        @apply w-full h-auto py-2 flex justify-start items-center
+        @apply w-full h-auto flex justify-start items-center
 
     }
 
     .shortener-form {
-        @apply w-4/5 flex flex-col justify-center items-center space-y-6
-        mt-12
+        @apply w-4/5 py-6 h-full flex flex-col justify-center items-center space-y-6
     }
 
     .input-text {
@@ -105,7 +104,7 @@
     }
 
     .url-list {
-        @apply w-full h-full space-y-4
+        @apply w-3/4 h-full space-y-2 mt-6
     }
 
     .url-item {
