@@ -19,6 +19,9 @@ const LoginUser = async (data) => {
         
         const response = await api.json();
 
+        window.localStorage.setItem('username', response.username);
+        window.localStorage.setItem('token', response.token);
+
         return response
 
     } catch (e) {

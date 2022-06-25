@@ -29,7 +29,7 @@ const Dashboard = () => {
             <aside className="w-full h-full space-y-2 flex flex-col items-center">
                 {urlList.map((urlList) => (
                     <UrlList key={urlList.id} item={urlList.key} id={urlList.id} access={urlList.views_access}/>
-                ))}
+                )).reverse()}
             </aside>
         </main>
     )

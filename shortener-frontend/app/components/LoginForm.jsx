@@ -5,7 +5,6 @@ import { useRouter } from 'next/router'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import LoginUser from '../helpers/LoginHelper';
-import { UserContext } from '../contexts/UserContext';
 
 const schema = yup.object({
     username: yup.string().required(),
@@ -17,7 +16,6 @@ const schema = yup.object({
  * @returns Formulário Login da aplicação
  */
 const LoginForm = () => {
-    const { user, setUser } = useContext(UserContext);
     const [msg, setMesg ] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
@@ -27,8 +25,7 @@ const LoginForm = () => {
 
     const onSubmit = async (data) => {
         const login = await LoginUser(data);
-        if ( login.token ) { 
-            setUser([ data.username, login.token ])
+        if ( login.token ) {
             router.push('/dashboard') 
         } else {
             setMesg("Sorry, user not existe")

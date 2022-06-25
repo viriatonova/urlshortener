@@ -15,7 +15,7 @@ export default function Home() {
                 <a  
                 className="text-md tracking-wider text-white 
                 hover:text-pink-300 hover:underline" 
-                href={`http://localhost:8181/${url}`}>{ `http://localhost:8181/${url}`}</a>
+                href={`http://localhost:8181/${url}`} target="_blank">{ `http://localhost:8181/${url}`}</a>
             </article>
         </main>
     )

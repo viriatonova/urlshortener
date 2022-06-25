@@ -67,14 +67,15 @@ export const authPostData = async (data) => {
     }
 }
 
-export const deleteData = async (id) => {
+export const deleteData = async (id, token) => {
     try {
         const url = `http://127.0.0.1:8181/api/v1/${id}/`;
 
         const api = await fetch(url, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${token}`
             },
         })
 
