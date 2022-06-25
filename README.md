@@ -1,6 +1,6 @@
 # Url Shortener
 
-A project to create an url shorter shortener web aplication. The aplication was maded with Django rest framework and NextJs
+A web aplication that generate url's shortener. This aplication was maded with Django rest framework and NextJs
 
 ## Content
 
