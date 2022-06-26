@@ -1,5 +1,11 @@
 import React from 'react'
 
+/**
+ * POST method for login user
+ * 
+ * @param {Array} data data from the login form 
+ * @returns 
+ */
 const LoginUser = async (data) => {
     try {
         const url = 'http://127.0.0.1:8181/login/';

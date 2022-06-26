@@ -3,7 +3,10 @@ import UrlList from "../components/UrlList"
 import UrlForm from "../components/UrlForm"
 import { getData } from '../helpers/DataHelper';
 
-
+/**
+ * 
+ * Page for loged users
+ */
 const Dashboard = () => {
     const [ userSection, setUserSection ] = useState("")
     const [ urlList, setUrlList ] = useState([])

@@ -5,11 +5,19 @@ import * as yup from "yup";
 import { postData } from '../helpers/DataHelper';
 import { UrlContext } from '../contexts/UrlContext'
 
+/**
+ * 
+ * Validation schema to url form
+ */
 const schema = yup.object({
     url: yup.string().required(),
     url_temporary: yup.string().required(),
 }).required();
 
+/**
+ * 
+ * Form to send POST requisition for url 
+ */
 const UrlForm = () => {
     const { url, setUrl } = useContext(UrlContext);
     const { register, handleSubmit, formState: { errors } } = useForm({

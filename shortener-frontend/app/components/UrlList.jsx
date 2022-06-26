@@ -1,7 +1,13 @@
 import React, { useState, useCallback } from 'react'
 import { deleteData } from '../helpers/DataHelper'
 
-
+/**
+ * 
+ * @param {string} url shortener url from backend
+ * @param {integer} id id from database item
+ * @param {integer} access statistic from url access 
+ * @returns 
+ */
 const UrlList = ({ item, id, access }) => {
 
     const handleDelete = (id) => {

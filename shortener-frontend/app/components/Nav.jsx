@@ -1,3 +1,9 @@
+import React from 'react'
+
+/**
+ * 
+ * Nav bar to home page
+ */
 const Nav = () => {
     return (
         <nav className="shorter-nav">

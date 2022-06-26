@@ -6,17 +6,24 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import LoginUser from '../helpers/LoginHelper';
 
+
+/**
+ * 
+ * Validation schema to Loginform
+ */
 const schema = yup.object({
     username: yup.string().required(),
     password: yup.string().required(),
 }).required();
 
+
 /**
- *
- * @returns Formulário Login da aplicação
+ * 
+ * Form to login 
  */
 const LoginForm = () => {
     const [msg, setMesg ] = useState('');
+    
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });

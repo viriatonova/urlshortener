@@ -3,6 +3,10 @@ import Nav from "../components/Nav"
 import UrlForm from "../components/UrlForm"
 import { UrlContext } from '../contexts/UrlContext'
 
+/**
+ * 
+ * Home page
+ */
 export default function Home() {
     const { url, setUrl } = useContext(UrlContext)
 

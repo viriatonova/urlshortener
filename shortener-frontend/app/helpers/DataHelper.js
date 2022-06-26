@@ -1,3 +1,9 @@
+/**
+ * GET method to private api
+ * 
+ * @param {string} token backend token to access
+ * @returns response from api
+ */
 export const getData = async (token) => {
     try {
         const url = 'http://127.0.0.1:8181/api/v1/';
@@ -17,6 +23,12 @@ export const getData = async (token) => {
 }
 
 
+/**
+ *  POST method to public api
+ * 
+ * @param {Array} data Data from url form 
+ * @returns 
+ */
 export const postData = async (data) => {
     try {
         const url = 'http://127.0.0.1:8181/api/public/';
@@ -42,6 +54,13 @@ export const postData = async (data) => {
     }
 }
 
+
+/**
+ * GET method to public api
+ * 
+ * @param {Array} data Data from the url form 
+ * @returns 
+ */
 export const authPostData = async (data) => {
     try {
         const url = 'http://127.0.0.1:8181/api/public/';
@@ -67,6 +86,12 @@ export const authPostData = async (data) => {
     }
 }
 
+/**
+ * DELETE method to pivate api
+ * 
+ * @param {integer} id id to the especific element 
+ * @param {string} token tocke for authorization
+ */
 export const deleteData = async (id, token) => {
     try {
         const url = `http://127.0.0.1:8181/api/v1/${id}/`;
@@ -84,6 +109,11 @@ export const deleteData = async (id, token) => {
     }
 }
 
+/**
+ * PUT method to the private api
+ * 
+ * @param {integer} id id to the especific element
+ */
 export const updateData = async (id) => {
     try {
         const url = `http://127.0.0.1:8181/api/v1/${id}/`;
