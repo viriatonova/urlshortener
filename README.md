@@ -48,11 +48,10 @@ A web aplication that generate url's shortener. This aplication was maded with D
     ```bash
     python manage.py createuser
     ```
-  - To use the private API you will need to create a user and login on the web aplication
 
 ### Notes
 
-- Using the private API allow yo see statistcs about how many times the shorteners url was access
+- Using the private API allow yo see statistcs about how many times the shorteners url was accessed
 
 
 ## Tests
