@@ -22,10 +22,12 @@ A web aplication that generate url's shortener. This aplication was maded with D
 - create a `.env` file.
 - Add set the following env vars to your `.env` file:
   - `DJANGO_SECRET_KEY=Your key here`
-  - `POSTGRES_DB=postgresdb`
-  - `POSTGRES_USER=postgres`
-  - `POSTGRES_PASSWORD=postgres`
-  - `POSTGRES_HOST=db`
+  - `LOCAL_DB_BACKUP=Your local db backup here`
+  - `MYSQL_ROOT_PASSWORD=your password here`
+  - `MYSQL_DATABASE=data base name here`
+  - `MYSQL_USER=your user here`
+  - `MYSQL_PASSWORD=your password here`
+  - `TZ=Local Time Zone here`
 
 ## Development Environment
 
@@ -43,6 +45,8 @@ A web aplication that generate url's shortener. This aplication was maded with D
   - Private API ( GET, POST, UPDATE, DELETE )
     - http://localhost:8181/api/v1
 
+### Front-end
+    - Acess url -> http://localhost:3131
 ### Credentials 
   - Register user on the API folder (urlshortener / shortener-backend)
     ```bash
