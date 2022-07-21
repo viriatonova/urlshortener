@@ -19,7 +19,9 @@ A web aplication that generate url's shortener. This aplication was maded with D
 
 ## Setup
 
-- create a `.env` file.
+- create a `.env` file on the:
+  - `root folder` 
+  - `urlshortener/shortener-backend/.env`
 - Add set the following env vars to your `.env` file:
   - `DJANGO_SECRET_KEY=Your key here`
   - `LOCAL_DB_BACKUP=Your local db backup here`
@@ -27,6 +29,7 @@ A web aplication that generate url's shortener. This aplication was maded with D
   - `MYSQL_DATABASE=data base name here`
   - `MYSQL_USER=your user here`
   - `MYSQL_PASSWORD=your password here`
+  - `MYSQL_HOST=mysql_shortener`
   - `TZ=Local Time Zone here`
 
 ## Development Environment
