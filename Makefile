@@ -8,11 +8,11 @@ build: ## [Build local development server]
 up: ## [Start local development server]
 	docker-compose up
 
-.PHONY: makemigrations
-up: ## [Start local development server]
+.PHONY: migrations
+migration: up
 	docker-compose exec app python manage.py makemigrations
 
-.PHONY: migrate
-up: ## [Start local development server]
+.PHONY: migrations
+migrate: 
 	docker-compose exec app python manage.py migrate
 	docker-compose stop
